@@ -2,16 +2,17 @@ package OvChipkaart;
 
 public class uitchecken {
     public static void main(String[] args) {
-        // Maak een nieuwe OvChipkaart aan met een kaartnummer en saldo
-        OvChipkaart mijnKaart = new OvChipkaart(123456, 10.0);
-        
+        // Maak een OVChipkaart aan en zet saldo erop
+        OVChipkaart mijnKaart = new OVChipkaart();
+        mijnKaart.voegSaldoToe(10); // Voeg saldo toe zodat inchecken mogelijk is
+
+        // Maak een incheckpaaltje aan
+        IncheckPaaltje paaltje = new IncheckPaaltje("Station Centraal");
+
         // Probeer in te checken
-        if (mijnKaart.inchecken()) {
-            System.out.println("Ingecheckt! Huidig saldo: " + mijnKaart.getSaldo());
-        }
-        
+        paaltje.inchecken(mijnKaart);
+
         // Probeer uit te checken
-        mijnKaart.uitchecken();
-        System.out.println("Uitgecheckt! Huidig saldo: " + mijnKaart.getSaldo());
+        paaltje.uitchecken(mijnKaart);
     }
 }

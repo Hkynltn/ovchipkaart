@@ -3,23 +3,18 @@ package OvChipkaart;
 public class IncheckPaaltje {
     private String locatie;
 
-    // Constructor
     public IncheckPaaltje(String locatie) {
         this.locatie = locatie;
     }
 
-    // Methode voor inchecken van een reiziger
-    public void inchecken(Reiziger reiziger) {
-        System.out.println("Probeer in te checken bij " + locatie + "...");
-        // Controleer of inchecken succesvol is
-        if (reiziger.getOvChipkaart().inchecken()) {
-            System.out.println(reiziger.getNaam() + " is succesvol ingecheckt.");
+    public void inchecken(OVChipkaart kaart) {
+        if (kaart.inchecken()) {
+            System.out.println("Kaart succesvol ingecheckt bij " + locatie);
         }
     }
 
-    // Methode voor uitchecken van een reiziger
-    public void uitchecken(Reiziger reiziger) {
-        reiziger.getOvChipkaart().uitchecken();
-        System.out.println(reiziger.getNaam() + " is succesvol uitgecheckt.");
+    public void uitchecken(OVChipkaart kaart) {
+        kaart.uitchecken();
+        System.out.println("Kaart succesvol uitgecheckt bij " + locatie);
     }
 }
